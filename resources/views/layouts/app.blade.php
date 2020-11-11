@@ -14,7 +14,7 @@
     <!-- metis menu -->
     <link rel="stylesheet" href="{{asset('panel/assets/plugins/metismenu-3.0.4/assets/css/metisMenu.min.css')}}">
     <link rel="stylesheet" href="{{asset('panel/assets/plugins/metismenu-3.0.4/assets/css/mm-vertical-hover.css')}}">
-    <!-- <link rel="stylesheet" href="assets/plugins/chartjs-bar-chart/chart.css"> -->
+    <!-- <link rel="stylesheet" href="{{asset('panel/plugins/chartjs-bar-chart/chart.css')}}"> -->
     <link rel="stylesheet" href="{{asset('panel/assets/css/style.css')}}">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
 </head>

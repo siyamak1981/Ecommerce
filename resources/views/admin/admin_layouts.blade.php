@@ -50,6 +50,7 @@
    <!-- Starlight CSS -->
    <link rel="stylesheet" href="{{ asset('backend/css/starlight.css') }}">
   <link href="{{ asset('backend/lib/summernote/summernote-bs4.css') }}" rel="stylesheet">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
   </head>
 
   <body>
@@ -195,7 +196,7 @@
                 <li><a href=""><i class="icon ion-ios-download-outline"></i> Downloads</a></li>
                 <li><a href=""><i class="icon ion-ios-star-outline"></i> Favorites</a></li>
                 <li><a href=""><i class="icon ion-ios-folder-outline"></i> Collections</a></li>
-                <li><a href=""><i class="icon ion-power"></i> Sign Out</a></li>
+                <li><a href="{{ route('admin.logout') }}"><i class="icon ion-power"></i> Sign Out</a></li>
               </ul>
             </div><!-- dropdown-menu -->
           </div><!-- dropdown -->
@@ -623,5 +624,26 @@
     <script src="{{ asset('backend/js/starlight.js') }}"></script>
     <script src="{{ asset('backend/js/ResizeSensor.js') }}"></script>
     <script src="{{ asset('backend/js/dashboard.js') }}"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script>
+        @if(Session::has('messege'))
+        var type = "{{Session::get('alert-type','info')}}"
+        switch (type) {
+            case 'info':
+                toastr.info("{{ Session::get('messege') }}");
+                break;
+            case 'success':
+                toastr.success("{{ Session::get('messege') }}");
+                break;
+            case 'warning':
+                toastr.warning("{{ Session::get('messege') }}");
+                break;
+            case 'error':
+                toastr.error("{{ Session::get('messege') }}");
+                break;
+        }
+        @endif
+    </script>
+ 
   </body>
 </html>

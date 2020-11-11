@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
     return view('welcome');
@@ -17,3 +18,4 @@ Route::get('/user/logout','App\Http\Controllers\HomeController@logout')->name('u
 Route::get('/admin/home/', [App\Http\Controllers\AdminController::class, 'index'])->name('admin');
 Route::get('admin','App\Http\Controllers\Admin\LoginController@showLogin')->name('admin.show');
 Route::post('admin','App\Http\Controllers\Admin\LoginController@login')->name('admin.login');
+Route::get('admin/logout','App\Http\Controllers\AdminController@logout')->name('admin.logout');
