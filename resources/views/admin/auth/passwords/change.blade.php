@@ -1,22 +1,18 @@
-@extends('layouts.app')
+@extends('admin.admin_layouts')
 
-@section('content')
-<div class="container">
-@if(session('error'))
-<div class="alert alert-danger">
-{{session('error')}}
-</div>
-@endif
-
+@section('admin_content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header"><strong>User</strong> Change Password</div>
+                <div class="card-header"><strong>Admin</strong> Change Password</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ Route('password.update') }}" aria-label="{{ __('Reset Password') }}">
+                    <form method="POST" action="{{ Route('admin.password.update') }}" aria-label="{{ __('Reset Password') }}">
                         @csrf
+
+                        <!--  -->
+
                         <div class="form-group row">
                             <label for="oldpass" class="col-md-4 col-form-label text-md-right">{{ __('Old Password') }}</label>
 
