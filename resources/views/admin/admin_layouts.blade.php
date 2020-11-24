@@ -50,7 +50,6 @@
 
   <!-- Starlight CSS -->
   <link rel="stylesheet" href="{{ asset('backend/css/starlight.css') }}">
-  <link href="{{ asset('backend/lib/summernote/summernote-bs4.css') }}" rel="stylesheet">
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
 </head>
 
@@ -60,24 +59,19 @@
     @else
 
     <!-- ########## START: LEFT PANEL ########## -->
-    <div class="sl-logo"><a href=""><i class="icon ion-android-star-outline"></i> starlight</a></div>
+    <div class="sl-logo"><a href=""><i class="icon ion-android-star-outline"></i> easylearning</a></div>
     <div class="sl-sideleft">
-      <div class="input-group input-group-search">
-        <input type="search" name="search" class="form-control" placeholder="Search">
-        <span class="input-group-btn">
-          <button class="btn"><i class="fa fa-search"></i></button>
-        </span><!-- input-group-btn -->
-      </div><!-- input-group -->
 
-      <label class="sidebar-label">Navigation</label>
+
+
       <div class="sl-sideleft-menu">
-        <a href="index.html" class="sl-menu-link active">
+        <a href="{{ url('admin/home') }}" class="sl-menu-link active">
           <div class="sl-menu-item">
             <i class="menu-item-icon icon ion-ios-home-outline tx-22"></i>
             <span class="menu-item-label">Dashboard</span>
           </div><!-- menu-item -->
         </a><!-- sl-menu-link -->
-    
+
         <a href="#" class="sl-menu-link">
           <div class="sl-menu-item">
             <i class="menu-item-icon ion-ios-pie-outline tx-20"></i>
@@ -86,66 +80,53 @@
           </div><!-- menu-item -->
         </a><!-- sl-menu-link -->
         <ul class="sl-menu-sub nav flex-column">
-          <li class="nav-item"><a href="chart-morris.html" class="nav-link">Category</a></li>
-          <li class="nav-item"><a href="chart-flot.html" class="nav-link"> Sub Category</a></li>
-          <li class="nav-item"><a href="chart-flot.html" class="nav-link"> Brand</a></li>
+          <li class="nav-item"><a href="{{route('category.index')}}" class="nav-link">Category</a></li>
+          <li class="nav-item"><a href="{{route('subcategory.index')}}" class="nav-link"> Sub Category</a></li>
+
         </ul>
         <a href="#" class="sl-menu-link">
           <div class="sl-menu-item">
             <i class="menu-item-icon icon ion-ios-gear-outline tx-24"></i>
-            <span class="menu-item-label">Forms</span>
+            <span class="menu-item-label">Brand</span>
             <i class="menu-item-arrow fa fa-angle-down"></i>
           </div><!-- menu-item -->
         </a><!-- sl-menu-link -->
         <ul class="sl-menu-sub nav flex-column">
-          <li class="nav-item"><a href="form-elements.html" class="nav-link">Form Elements</a></li>
-          <li class="nav-item"><a href="form-layouts.html" class="nav-link">Form Layouts</a></li>
-          <li class="nav-item"><a href="form-validation.html" class="nav-link">Form Validation</a></li>
-          <li class="nav-item"><a href="form-wizards.html" class="nav-link">Form Wizards</a></li>
-          <li class="nav-item"><a href="form-editor-text.html" class="nav-link">Text Editor</a></li>
+          <li class="nav-item"><a href="{{route('brand.index')}}" class="nav-link"> Brand</a></li>
+
         </ul>
         <a href="#" class="sl-menu-link">
           <div class="sl-menu-item">
             <i class="menu-item-icon icon ion-ios-filing-outline tx-24"></i>
-            <span class="menu-item-label">UI Elements</span>
+            <span class="menu-item-label">Coupon</span>
             <i class="menu-item-arrow fa fa-angle-down"></i>
           </div><!-- menu-item -->
         </a><!-- sl-menu-link -->
         <ul class="sl-menu-sub nav flex-column">
-          <li class="nav-item"><a href="accordion.html" class="nav-link">Accordion</a></li>
+          <li class="nav-item"><a href="{{route('coupon.index')}}" class="nav-link">Coupon</a></li>
           <li class="nav-item"><a href="alerts.html" class="nav-link">Alerts</a></li>
-          <li class="nav-item"><a href="buttons.html" class="nav-link">Buttons</a></li>
-          <li class="nav-item"><a href="cards.html" class="nav-link">Cards</a></li>
-          <li class="nav-item"><a href="icons.html" class="nav-link">Icons</a></li>
-          <li class="nav-item"><a href="modal.html" class="nav-link">Modal</a></li>
-          <li class="nav-item"><a href="navigation.html" class="nav-link">Navigation</a></li>
-          <li class="nav-item"><a href="pagination.html" class="nav-link">Pagination</a></li>
-          <li class="nav-item"><a href="popups.html" class="nav-link">Tooltip &amp; Popover</a></li>
-          <li class="nav-item"><a href="progress.html" class="nav-link">Progress</a></li>
-          <li class="nav-item"><a href="spinners.html" class="nav-link">Spinners</a></li>
-          <li class="nav-item"><a href="typography.html" class="nav-link">Typography</a></li>
         </ul>
         <a href="#" class="sl-menu-link">
           <div class="sl-menu-item">
             <i class="menu-item-icon icon ion-ios-bookmarks-outline tx-20"></i>
-            <span class="menu-item-label">Tables</span>
+            <span class="menu-item-label">Other</span>
             <i class="menu-item-arrow fa fa-angle-down"></i>
           </div><!-- menu-item -->
         </a><!-- sl-menu-link -->
         <ul class="sl-menu-sub nav flex-column">
-          <li class="nav-item"><a href="table-basic.html" class="nav-link">Basic Table</a></li>
+          <li class="nav-item"><a href="{{ route('newslater.index') }}" class="nav-link">Newslaters</a></li>
           <li class="nav-item"><a href="table-datatable.html" class="nav-link">Data Table</a></li>
         </ul>
         <a href="#" class="sl-menu-link">
           <div class="sl-menu-item">
             <i class="menu-item-icon icon ion-ios-navigate-outline tx-24"></i>
-            <span class="menu-item-label">Maps</span>
+            <span class="menu-item-label">Product</span>
             <i class="menu-item-arrow fa fa-angle-down"></i>
           </div><!-- menu-item -->
         </a><!-- sl-menu-link -->
         <ul class="sl-menu-sub nav flex-column">
-          <li class="nav-item"><a href="map-google.html" class="nav-link">Google Maps</a></li>
-          <li class="nav-item"><a href="map-vector.html" class="nav-link">Vector Maps</a></li>
+          <li class="nav-item"><a href="{{ route('product.index') }}" class="nav-link">Products</a></li>
+          <li class="nav-item"><a href="{{ route('product.create') }}" class="nav-link">Add Product</a></li>
         </ul>
         <a href="mailbox.html" class="sl-menu-link">
           <div class="sl-menu-item">
@@ -156,15 +137,15 @@
         <a href="#" class="sl-menu-link">
           <div class="sl-menu-item">
             <i class="menu-item-icon icon ion-ios-paper-outline tx-22"></i>
-            <span class="menu-item-label">Pages</span>
+            <span class="menu-item-label">Post</span>
             <i class="menu-item-arrow fa fa-angle-down"></i>
           </div><!-- menu-item -->
         </a><!-- sl-menu-link -->
         <ul class="sl-menu-sub nav flex-column">
-          <li class="nav-item"><a href="blank.html" class="nav-link">Blank Page</a></li>
-          <li class="nav-item"><a href="page-signin.html" class="nav-link">Signin Page</a></li>
-          <li class="nav-item"><a href="page-signup.html" class="nav-link">Signup Page</a></li>
-          <li class="nav-item"><a href="page-notfound.html" class="nav-link">404 Page Not Found</a></li>
+    <li class="nav-item"><a href="{{ route('add.blog.categorylist') }}" class="nav-link">Blog Category</a></li>
+
+          <li class="nav-item"><a href="{{ route('add.blogpost') }}" class="nav-link">Add Post</a></li>
+          <li class="nav-item"><a href="{{ route('all.blogpost') }}" class="nav-link">Post List</a></li>
         </ul>
       </div><!-- sl-sideleft-menu -->
 
@@ -369,169 +350,114 @@
         <a class="breadcrumb-item" href="index.html">Starlight</a>
         <span class="breadcrumb-item active">Dashboard</span>
       </nav>
-      <div class="row row-sm">
-        <div class="col-sm-6 col-xl-3">
-          <div class="card pd-20 bg-primary">
-            <div class="d-flex justify-content-between align-items-center mg-b-10">
-              <h6 class="tx-11 tx-uppercase mg-b-0 tx-spacing-1 tx-white">Today's Sales</h6>
-              <a href="" class="tx-white-8 hover-white"><i class="icon ion-android-more-horizontal"></i></a>
-            </div><!-- card-header -->
-            <div class="d-flex align-items-center justify-content-between">
-              <span class="sparkline2">5,3,9,6,5,9,7,3,5,2</span>
-              <h3 class="mg-b-0 tx-white tx-lato tx-bold">$850</h3>
-            </div><!-- card-body -->
-            <div class="d-flex align-items-center justify-content-between mg-t-15 bd-t bd-white-2 pd-t-10">
-              <div>
-                <span class="tx-11 tx-white-6">Gross Sales</span>
-                <h6 class="tx-white mg-b-0">$2,210</h6>
-              </div>
-              <div>
-                <span class="tx-11 tx-white-6">Tax Return</span>
-                <h6 class="tx-white mg-b-0">$320</h6>
-              </div>
-            </div><!-- -->
-          </div><!-- card -->
-        </div><!-- col-3 -->
-        <div class="col-sm-6 col-xl-3 mg-t-20 mg-sm-t-0">
-          <div class="card pd-20 bg-info">
-            <div class="d-flex justify-content-between align-items-center mg-b-10">
-              <h6 class="tx-11 tx-uppercase mg-b-0 tx-spacing-1 tx-white">This Week's Sales</h6>
-              <a href="" class="tx-white-8 hover-white"><i class="icon ion-android-more-horizontal"></i></a>
-            </div><!-- card-header -->
-            <div class="d-flex align-items-center justify-content-between">
-              <span class="sparkline2">5,3,9,6,5,9,7,3,5,2</span>
-              <h3 class="mg-b-0 tx-white tx-lato tx-bold">$4,625</h3>
-            </div><!-- card-body -->
-            <div class="d-flex align-items-center justify-content-between mg-t-15 bd-t bd-white-2 pd-t-10">
-              <div>
-                <span class="tx-11 tx-white-6">Gross Sales</span>
-                <h6 class="tx-white mg-b-0">$2,210</h6>
-              </div>
-              <div>
-                <span class="tx-11 tx-white-6">Tax Return</span>
-                <h6 class="tx-white mg-b-0">$320</h6>
-              </div>
-            </div><!-- -->
-          </div><!-- card -->
-        </div><!-- col-3 -->
-        <div class="col-sm-6 col-xl-3 mg-t-20 mg-xl-t-0">
-          <div class="card pd-20 bg-purple">
-            <div class="d-flex justify-content-between align-items-center mg-b-10">
-              <h6 class="tx-11 tx-uppercase mg-b-0 tx-spacing-1 tx-white">This Month's Sales</h6>
-              <a href="" class="tx-white-8 hover-white"><i class="icon ion-android-more-horizontal"></i></a>
-            </div><!-- card-header -->
-            <div class="d-flex align-items-center justify-content-between">
-              <span class="sparkline2">5,3,9,6,5,9,7,3,5,2</span>
-              <h3 class="mg-b-0 tx-white tx-lato tx-bold">$11,908</h3>
-            </div><!-- card-body -->
-            <div class="d-flex align-items-center justify-content-between mg-t-15 bd-t bd-white-2 pd-t-10">
-              <div>
-                <span class="tx-11 tx-white-6">Gross Sales</span>
-                <h6 class="tx-white mg-b-0">$2,210</h6>
-              </div>
-              <div>
-                <span class="tx-11 tx-white-6">Tax Return</span>
-                <h6 class="tx-white mg-b-0">$320</h6>
-              </div>
-            </div><!-- -->
-          </div><!-- card -->
-        </div><!-- col-3 -->
-        <div class="col-sm-6 col-xl-3 mg-t-20 mg-xl-t-0">
-          <div class="card pd-20 bg-sl-primary">
-            <div class="d-flex justify-content-between align-items-center mg-b-10">
-              <h6 class="tx-11 tx-uppercase mg-b-0 tx-spacing-1 tx-white">This Year's Sales</h6>
-              <a href="" class="tx-white-8 hover-white"><i class="icon ion-android-more-horizontal"></i></a>
-            </div><!-- card-header -->
-            <div class="d-flex align-items-center justify-content-between">
-              <span class="sparkline2">5,3,9,6,5,9,7,3,5,2</span>
-              <h3 class="mg-b-0 tx-white tx-lato tx-bold">$91,239</h3>
-            </div><!-- card-body -->
-            <div class="d-flex align-items-center justify-content-between mg-t-15 bd-t bd-white-2 pd-t-10">
-              <div>
-                <span class="tx-11 tx-white-6">Gross Sales</span>
-                <h6 class="tx-white mg-b-0">$2,210</h6>
-              </div>
-              <div>
-                <span class="tx-11 tx-white-6">Tax Return</span>
-                <h6 class="tx-white mg-b-0">$320</h6>
-              </div>
-            </div><!-- -->
-          </div><!-- card -->
-        </div><!-- col-3 -->
-      </div>
-    </div>
-      @endguest
 
-      @yield('admin_content')
+    </div>
+    @endguest
+    @yield('admin_content')
+
   </div>
 
-      <script src="{{ asset('backend/lib/jquery/jquery.js') }}"></script>
-      <script src="{{ asset('backend/lib/popper.js/popper.js') }}"></script>
-      <script src="{{ asset('backend/lib/bootstrap/bootstrap.js') }}"></script>
-      <script src="{{ asset('backend/lib/jquery-ui/jquery-ui.js') }}"></script>
-      <script src="{{ asset('backend/lib/perfect-scrollbar/js/perfect-scrollbar.jquery.js') }}"></script>
+  <script src="{{ asset('backend/lib/jquery/jquery.js') }}"></script>
+  <script src="{{ asset('backend/lib/popper.js/popper.js') }}"></script>
+  <script src="{{ asset('backend/lib/bootstrap/bootstrap.js') }}"></script>
+  <script src="{{ asset('backend/lib/jquery-ui/jquery-ui.js') }}"></script>
+  <script src="{{ asset('backend/lib/perfect-scrollbar/js/perfect-scrollbar.jquery.js') }}"></script>
 
 
-      <script src="{{ asset('backend/lib/highlightjs/highlight.pack.js') }}"></script>
-      <script src="{{ asset('backend/lib/datatables/jquery.dataTables.js') }}"></script>
-      <script src="{{ asset('backend/lib/datatables-responsive/dataTables.responsive.js') }}"></script>
-      <script src="{{ asset('backend/lib/select2/js/select2.min.js') }}"></script>
+  <script src="{{ asset('backend/lib/highlightjs/highlight.pack.js') }}"></script>
+  <script src="{{ asset('backend/lib/datatables/jquery.dataTables.js') }}"></script>
+  <script src="{{ asset('backend/lib/datatables-responsive/dataTables.responsive.js') }}"></script>
+  <script src="{{ asset('backend/lib/select2/js/select2.min.js') }}"></script>
 
 
 
-      <script src="{{ asset('backend/lib/jquery.sparkline.bower/jquery.sparkline.min.js') }}"></script>
-      <script src="{{ asset('backend/lib/d3/d3.js') }}"></script>
-      <script src="{{ asset('backend/lib/rickshaw/rickshaw.min.js') }}"></script>
-      <script src="{{ asset('backend/lib/chart.js/Chart.js') }}"></script>
-      <script src="{{ asset('backend/lib/Flot/jquery.flot.js') }}"></script>
-      <script src="{{ asset('backend/lib/Flot/jquery.flot.pie.js') }}"></script>
-      <script src="{{ asset('backend/lib/Flot/jquery.flot.resize.js') }}"></script>
-      <script src="{{ asset('backend/lib/flot-spline/jquery.flot.spline.js') }}"></script>
+  <script src="{{ asset('backend/lib/jquery.sparkline.bower/jquery.sparkline.min.js') }}"></script>
+  <script src="{{ asset('backend/lib/d3/d3.js') }}"></script>
+  <script src="{{ asset('backend/lib/rickshaw/rickshaw.min.js') }}"></script>
+  <script src="{{ asset('backend/lib/chart.js/Chart.js') }}"></script>
+  <script src="{{ asset('backend/lib/Flot/jquery.flot.js') }}"></script>
+  <script src="{{ asset('backend/lib/Flot/jquery.flot.pie.js') }}"></script>
+  <script src="{{ asset('backend/lib/Flot/jquery.flot.resize.js') }}"></script>
+  <script src="{{ asset('backend/lib/flot-spline/jquery.flot.spline.js') }}"></script>
 
-      <script src="{{ asset('backend/js/starlight.js') }}"></script>
-      <script src="{{ asset('backend/js/ResizeSensor.js') }}"></script>
-      <script src="{{ asset('backend/js/dashboard.js') }}"></script>
-      <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-      <script src="{{ asset('https://unpkg.com/sweetalert/dist/sweetalert.min.js')}}"></script>
-      <script>
-        @if(Session::has('messege'))
-        var type = "{{Session::get('alert-type','info')}}"
-        switch (type) {
-          case 'info':
-            toastr.info("{{ Session::get('messege') }}");
-            break;
-          case 'success':
-            toastr.success("{{ Session::get('messege') }}");
-            break;
-          case 'warning':
-            toastr.warning("{{ Session::get('messege') }}");
-            break;
-          case 'error':
-            toastr.error("{{ Session::get('messege') }}");
-            break;
+  <script src="{{ asset('backend/js/starlight.js') }}"></script>
+  <script src="{{ asset('backend/js/ResizeSensor.js') }}"></script>
+  <script src="{{ asset('backend/js/dashboard.js') }}"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+  <script src="{{ asset('https://unpkg.com/sweetalert/dist/sweetalert.min.js')}}"></script>
+  <script>
+    $(function() {
+      'use strict';
+
+      $('#datatable1').DataTable({
+        responsive: true,
+        language: {
+          searchPlaceholder: 'Search...',
+          sSearch: '',
+          lengthMenu: '_MENU_ items/page',
         }
-        @endif
-      </script>
-      <script>
-        $(document).on("click", "#delete", function(e) {
-          e.preventDefault();
-          var link = $(this).attr("href");
-          swal({
-              title: "Are you Want to delete?",
-              text: "Once Delete, This will be Permanently Delete!",
-              icon: "warning",
-              buttons: true,
-              dangerMode: true,
-            })
-            .then((willDelete) => {
-              if (willDelete) {
-                window.location.href = link;
-              } else {
-                swal("Safe Data!");
-              }
-            });
+      });
+
+      $('#datatable2').DataTable({
+        bLengthChange: false,
+        searching: false,
+        responsive: true
+      });
+
+      // Select2
+      $('.dataTables_length select').select2({
+        minimumResultsForSearch: Infinity
+      });
+
+    });
+  </script>
+
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
+  <script>
+    @if(Session::has('messege'))
+    var type = "{{Session::get('alert-type','info')}}"
+    switch (type) {
+      case 'info':
+        toastr.info("{{ Session::get('messege') }}");
+        break;
+      case 'success':
+        toastr.success("{{ Session::get('messege') }}");
+        break;
+      case 'warning':
+        toastr.warning("{{ Session::get('messege') }}");
+        break;
+      case 'error':
+        toastr.error("{{ Session::get('messege') }}");
+        break;
+    }
+    @endif
+  </script>
+
+  <script>
+    $(document).on("click", "#delete", function(e) {
+      e.preventDefault();
+      var link = $(this).attr("href");
+      swal({
+          title: "Are you Want to delete?",
+          text: "Once Delete, This will be Permanently Delete!",
+          icon: "warning",
+          buttons: true,
+          dangerMode: true,
+        })
+        .then((willDelete) => {
+          if (willDelete) {
+            window.location.href = link;
+          } else {
+            swal("Safe Data!");
+          }
         });
-      </script>
+    });
+  </script>
+
+
+
 
 </body>
 
