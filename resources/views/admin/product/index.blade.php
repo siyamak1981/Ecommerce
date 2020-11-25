@@ -51,25 +51,25 @@
 
               </td>
               <td class="row">
-                  <a href="{{ route('product.edit',$row->id) }} " class="btn btn-sm btn-info" title="edit"><i class="fa fa-edit"></i></a>
-                  <form id="delete-form-{{ $row->id }}" method="post" action="{{ route('product.destroy',$row->id) }}" style="display: none">
-                                  {{ csrf_field() }}
-                                  {{ method_field('DELETE') }}
-                                </form>
-                                <a href="" class="btn btn-sm btn-danger" onclick="if(confirm('Are you sure, You Want to delete this?'))
+                <a href="{{ route('product.edit',$row->id) }} " class="btn btn-sm btn-info" title="edit"><i class="fa fa-edit"></i></a>
+                <form id="delete-form-{{ $row->id }}" method="post" action="{{ route('product.destroy',$row->id) }}" style="display: none">
+                  {{ csrf_field() }}
+                  {{ method_field('DELETE') }}
+                </form>
+                <a href="" class="btn btn-sm btn-danger" onclick="if(confirm('Are you sure, You Want to delete this?'))
                                     {
                                       event.preventDefault();
                                       document.getElementById('delete-form-{{ $row->id }}').submit();
                                     }
                                     else{
                                       event.preventDefault();
-                                    }"><i class ="fa fa-trash"></i></a>
-                  <a href="{{ URL::to('admin/product/'.$row->id) }}" class="btn btn-sm btn-warning" title="Show"><i class="fa fa-eye"></i></a>
-                  @if($row->status == 1)
-                  <a href="{{ URL::to('inactive/product/'.$row->id) }}" class="btn btn-sm btn-danger" title="Inactive"><i class="fa fa-thumbs-down"></i></a>
-                  @else
-                  <a href="{{ URL::to('active/product/'.$row->id) }}" class="btn btn-sm btn-info" title="Active"><i class="fa fa-thumbs-up"></i></a>
-           
+                                    }"><i class="fa fa-trash"></i></a>
+                <a href="{{ URL::to('admin/product/'.$row->id) }}" class="btn btn-sm btn-warning" title="Show"><i class="fa fa-eye"></i></a>
+                @if($row->status == 1)
+                <a href="{{ URL::to('inactive/product/'.$row->id) }}" class="btn btn-sm btn-danger" title="Inactive"><i class="fa fa-thumbs-down"></i></a>
+                @else
+                <a href="{{ URL::to('active/product/'.$row->id) }}" class="btn btn-sm btn-info" title="Active"><i class="fa fa-thumbs-up"></i></a>
+
                 @endif
               </td>
 
@@ -78,8 +78,9 @@
 
           </tbody>
         </table>
-      </div><!-- table-wrapper -->
-    </div><!-- card -->
+
+      </div>
+    </div>
 
 
 
