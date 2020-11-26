@@ -56,7 +56,7 @@ class AdminController extends Controller
                         'messege'=>'Password Changed Successfully ! Now Login with Your New Password',
                         'alert-type'=>'success'
                          );
-                       return Redirect()->route('admin.login')->with($notification); 
+                       return Redirect(route('admin'))->with($notification); 
                  }else{
                      $notification=array(
                         'messege'=>'New password and Confirm Password not matched!',

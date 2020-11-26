@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin\Auth;
 use App\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
@@ -42,7 +42,7 @@ class ResetPasswordController extends Controller
     public function showResetForm(Request $request, $token = null)
     {
         return view('admin.auth.passwords.reset')->with(
-            ['token' => $token, 'email' => $request->email, 'admins'=>$request()->admins]
+            ['token' => $token, 'email' => $request->email, 'admins'=> $request->admins]
         );
     }
     public function broker()

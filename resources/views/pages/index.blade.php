@@ -392,4 +392,146 @@ $hot = DB::table('products')
 
 
 
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+	function productview(id) {
+		$.ajax({
+			url: "{{ url('/cart/product/view/') }}/" + id,
+			type: "GET",
+			dataType: "json",
+			success: function(data) {
+				$('#pcode').text(data.product.product_code);
+				$('#pcat').text(data.product.category_name);
+				$('#psub').text(data.product.subcategory_name);
+				$('#pbrand').text(data.product.brand_name);
+				$('#pname').text(data.product.product_name);
+				$('#pimage').attr('src', data.product.image_one);
+				$('#product_id').val(data.product.id);
+
+				var d = $('select[name="color"]').empty();
+				$.each(data.color, function(key, value) {
+					$('select[name="color"]').append('<option value="' + value + '">' + value + '</option>');
+				});
+
+				var d = $('select[name="size"]').empty();
+				$.each(data.size, function(key, value) {
+					$('select[name="size"]').append('<option value="' + value + '">' + value + '</option>');
+				});
+
+
+			}
+		})
+	}
+</script>
+
+
+
+<!-- <script type="text/javascript">
+    
+   $(document).ready(function(){
+     $('.addcart').on('click', function(){
+        var id = $(this).data('id');
+        if (id) {
+            $.ajax({
+                url: " {{ url('/add/to/cart/') }}/"+id,
+                type:"GET",
+                datType:"json",
+                success:function(data){
+             const Toast = Swal.mixin({
+                  toast: true,
+                  position: 'top-end',
+                  showConfirmButton: false,
+                  timer: 3000,
+                  timerProgressBar: true,
+                  onOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                  }
+                })
+
+             if ($.isEmptyObject(data.error)) {
+
+                Toast.fire({
+                  icon: 'success',
+                  title: data.success
+                })
+             }else{
+                 Toast.fire({
+                  icon: 'error',
+                  title: data.error
+                })
+             }
+ 
+
+                },
+            });
+
+        }else{
+            alert('danger');
+        }
+     });
+
+   });
+
+
+</script> -->
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('.addwishlist').on('click', function() {
+			var id = $(this).data('id');
+			if (id) {
+				$.ajax({
+					url: " {{ url('add/wishlist/') }}/" + id,
+					type: "GET",
+					datType: "json",
+					success: function(data) {
+						const Toast = Swal.mixin({
+							toast: true,
+							position: 'top-end',
+							showConfirmButton: false,
+							timer: 3000,
+							timerProgressBar: true,
+							onOpen: (toast) => {
+								toast.addEventListener('mouseenter', Swal.stopTimer)
+								toast.addEventListener('mouseleave', Swal.resumeTimer)
+							}
+						})
+
+						if ($.isEmptyObject(data.error)) {
+
+							Toast.fire({
+								icon: 'success',
+								title: data.success
+							})
+						} else {
+							Toast.fire({
+								icon: 'error',
+								title: data.error
+							})
+						}
+
+
+					},
+				});
+			} else {
+				alert('danger');
+			}
+		});
+
+	});
+</script>
 @endsection

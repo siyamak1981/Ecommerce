@@ -15,7 +15,7 @@
                 <div class="card-header"><strong>User</strong> Change Password</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ Route('password.update') }}" aria-label="{{ __('Reset Password') }}">
+                    <form method="POST" action="{{ Route('user.update.password') }}" aria-label="{{ __('Reset Password') }}">
                         @csrf
                         <div class="form-group row">
                             <label for="oldpass" class="col-md-4 col-form-label text-md-right">{{ __('Old Password') }}</label>

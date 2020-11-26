@@ -8,8 +8,6 @@
             ->get();
 
   @endphp
-
-
     <div class="banner_2">
         <div class="banner_2_background" style="background-image:url({{ asset('frontend/images/banner_2_background.jpg')}})"></div>
         <div class="banner_2_container">
