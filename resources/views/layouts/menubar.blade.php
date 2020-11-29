@@ -92,7 +92,7 @@
    									<li><a href="contact.html">Contact<i class="fas fa-chevron-down"></i></a></li>
    								</ul>
    							</li>
-   							<li><a href="#">Blog<i class="fas fa-chevron-down"></i></a></li>
+   							<li><a href="{{route('blog.post')}}">Blog<i class="fas fa-chevron-down"></i></a></li>
 
    							<li><a href="#">Contact<i class="fas fa-chevron-down"></i></a></li>
    						</ul>
@@ -193,10 +193,10 @@
 
    					<div class="menu_contact">
    						<div class="menu_contact_item">
-   							<div class="menu_contact_icon"><img src="{{ asset('public/frontend/images/phone_white.png')}}" alt=""></div>+38 068 005 3570
+   							<div class="menu_contact_icon"><img src="{{ asset('frontend/images/phone_white.png')}}" alt=""></div>+38 068 005 3570
    						</div>
    						<div class="menu_contact_item">
-   							<div class="menu_contact_icon"><img src="{{ asset('public/frontend/images/mail_white.png')}}" alt=""></div><a href="mailto:fastsales@gmail.com">fastsales@gmail.com</a>
+   							<div class="menu_contact_icon"><img src="{{ asset('frontend/images/mail_white.png')}}" alt=""></div><a href="mailto:fastsales@gmail.com">fastsales@gmail.com</a>
    						</div>
    					</div>
    				</div>
@@ -207,5 +207,5 @@
 
    </header>
 
-@include('layouts.slider')
+
 

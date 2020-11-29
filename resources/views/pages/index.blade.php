@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('content')
 @include('layouts.menubar')
+@include('layouts.slider')
 @php
 $featured = DB::table('products')->where('status',1)->orderBy('id','desc')->limit(12)->get();
 $trend = DB::table('products')->where('status',1)->where('trend',1)->orderBy('id','desc')->limit(8)->get();
@@ -169,8 +170,7 @@ $hot = DB::table('products')
 						<div class="tabs">
 							<ul class="clearfix">
 								<li class="active">Featured</li>
-								<li>Trend</li>
-								<li>Best Rated</li>
+
 							</ul>
 							<div class="tabs_line"><span></span></div>
 						</div>
@@ -178,37 +178,26 @@ $hot = DB::table('products')
 						<!-- Product Panel -->
 						<div class="product_panel panel active">
 							<div class="featured_slider slider">
-
 								@foreach($featured as $row)
 								<div class="featured_slider_item">
 									<div class="border_active"></div>
 									<div class="product_item discount d-flex flex-column align-items-center justify-content-center text-center">
 										<div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="{{ asset( $row->image_one )}}" alt="" style="height: 120px; width: 100px;"></div>
 										<div class="product_content">
-
 											@if($row->discount_price == NULL)
 											<div class="product_price discount">${{ $row->selling_price }}<span> </div>
 											@else
 											<div class="product_price discount">${{ $row->discount_price }}<span>${{ $row->selling_price }}</span></div>
 											@endif
-
-
-
 											<div class="product_name">
 												<div><a href="{{ url('product/details/'.$row->id.'/'.$row->product_name) }}">{{ $row->product_name }}</a></div>
 											</div>
 
 											<div class="product_extras">
-												<div class="product_color">
-													<input type="radio" checked="" name="product_color" style="background:#b19c83" tabindex="0">
-													<input type="radio" name="product_color" style="background:#000000" tabindex="0">
-													<input type="radio" name="product_color" style="background:#999999" tabindex="0">
-												</div>
+
 												<button id="{{ $row->id }}" class="product_cart_button addcart" data-toggle="modal" data-target="#cartmodal" onclick="productview(this.id)">Add to Cart</button>
 											</div>
 										</div>
-
-
 										<button class="addwishlist" data-id="{{ $row->id }}">
 											<div class="product_fav"><i class="fas fa-heart"></i></div>
 										</button>
@@ -229,9 +218,6 @@ $hot = DB::table('products')
 
 											</li>
 											@endif
-
-
-
 										</ul>
 									</div>
 								</div>
@@ -239,254 +225,73 @@ $hot = DB::table('products')
 							</div>
 							<div class="featured_slider_dots_cover"></div>
 						</div>
-
-						<!-- Product Trend -->
-
-						<div class="product_panel panel">
-							<div class="featured_slider slider">
-								@foreach($trend as $row)
-								<div class="featured_slider_item">
-									<div class="border_active"></div>
-									<div class="product_item discount d-flex flex-column align-items-center justify-content-center text-center">
-										<div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="{{ asset( $row->image_one )}}" alt="" style="height: 120px; width: 100px;"></div>
-										<div class="product_content">
-
-											@if($row->discount_price == NULL)
-											<div class="product_price discount">${{ $row->selling_price }}<span> </div>
-											@else
-											<div class="product_price discount">${{ $row->discount_price }}<span>${{ $row->selling_price }}</span></div>
-											@endif
-
-
-
-											<div class="product_name">
-												<div><a href="{{ url('product/details/'.$row->id.'/'.$row->product_name) }}">{{ $row->product_name }}</a></div>
-											</div>
-
-											<div class="product_extras">
-												<div class="product_color">
-													<input type="radio" checked="" name="product_color" style="background:#b19c83" tabindex="0">
-													<input type="radio" name="product_color" style="background:#000000" tabindex="0">
-													<input type="radio" name="product_color" style="background:#999999" tabindex="0">
-												</div>
-												<button id="{{ $row->id }}" class="product_cart_button addcart" data-toggle="modal" data-target="#cartmodal" onclick="productview(this.id)">Add to Cart</button>
-											</div>
-										</div>
-
-
-										<button class="addwishlist" data-id="{{ $row->id }}">
-											<div class="product_fav"><i class="fas fa-heart"></i></div>
-										</button>
-
-
-										<ul class="product_marks">
-											@if($row->discount_price == NULL)
-											<li class="product_mark product_discount bg-primary">New</li>
-											@else
-											<li class="product_mark product_discount">
-												@php
-												$amount = $row->selling_price - $row->discount_price;
-												$discount = $amount/$row->selling_price*100;
-
-												@endphp
-
-												{{ intval($discount) }}%
-
-											</li>
-											@endif
-
-
-
-										</ul>
-									</div>
-								</div>
-
-								@endforeach
-							</div>
-
-							<div class="featured_slider_dots_cover"></div>
-						</div>
-
-						<!-- Product best Rated -->
-						<div class="product_panel panel">
-							<div class="featured_slider slider">
-								@foreach($best as $row)
-								<div class="featured_slider_item">
-									<div class="border_active"></div>
-									<div class="product_item discount d-flex flex-column align-items-center justify-content-center text-center">
-										<div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="{{ asset( $row->image_one )}}" alt="" style="height: 120px; width: 100px;"></div>
-										<div class="product_content">
-
-											@if($row->discount_price == NULL)
-											<div class="product_price discount">${{ $row->selling_price }}<span> </div>
-											@else
-											<div class="product_price discount">${{ $row->discount_price }}<span>${{ $row->selling_price }}</span></div>
-											@endif
-
-
-
-											<div class="product_name">
-												<div><a href="{{ url('product/details/'.$row->id.'/'.$row->product_name) }}">{{ $row->product_name }}</a></div>
-											</div>
-
-											<div class="product_extras">
-												<div class="product_color">
-													<input type="radio" checked="" name="product_color" style="background:#b19c83" tabindex="0">
-													<input type="radio" name="product_color" style="background:#000000" tabindex="0">
-													<input type="radio" name="product_color" style="background:#999999" tabindex="0">
-												</div>
-												<button id="{{ $row->id }}" class="product_cart_button addcart" data-toggle="modal" data-target="#cartmodal" onclick="productview(this.id)">Add to Cart</button>
-											</div>
-										</div>
-
-
-										<button class="addwishlist" data-id="{{ $row->id }}">
-											<div class="product_fav"><i class="fas fa-heart"></i></div>
-										</button>
-
-
-										<ul class="product_marks">
-											@if($row->discount_price == NULL)
-											<li class="product_mark product_discount bg-primary">New</li>
-											@else
-											<li class="product_mark product_discount">
-												@php
-												$amount = $row->selling_price - $row->discount_price;
-												$discount = $amount/$row->selling_price*100;
-
-												@endphp
-
-												{{ intval($discount) }}%
-
-											</li>
-											@endif
-
-
-
-										</ul>
-									</div>
-								</div>
-								@endforeach
-							</div>
-							<div class="featured_slider_dots_cover"></div>
-						</div>
-
 					</div>
 				</div>
-
 			</div>
 		</div>
 	</div>
 </div>
 
-@include('pages.popularcategory')
-@include('pages.banner')
-@include('pages.new_arrivals')
-@include('pages.best_seller')
-@include('pages.adverts')
-@include('pages.trends')
-@include('pages.reviews')
-@include('pages.viewed')
-@include('pages.brands')
-@include('pages.newsletter')
+@include('pages.partials.popularcategory')
+@include('pages.partials.banner')
+@include('pages.partials.new-category')
+@include('pages.partials.best_seller')
+@include('pages.partials.adverts')
+@include('pages.partials.trends')
+@include('pages.partials.reviews')
+@include('pages.partials.viewed')
+@include('pages.partials.brands')
+@include('pages.partials.newsletter')
+@include('pages.partials.modals')
 
 
-
-
-<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
 <script type="text/javascript">
-	function productview(id) {
-		$.ajax({
-			url: "{{ url('/cart/product/view/') }}/" + id,
-			type: "GET",
-			dataType: "json",
-			success: function(data) {
-				$('#pcode').text(data.product.product_code);
-				$('#pcat').text(data.product.category_name);
-				$('#psub').text(data.product.subcategory_name);
-				$('#pbrand').text(data.product.brand_name);
-				$('#pname').text(data.product.product_name);
-				$('#pimage').attr('src', data.product.image_one);
-				$('#product_id').val(data.product.id);
+	//    $(document).ready(function(){
+	//      $('.addcart').on('click', function(){
+	//         var id = $(this).data('id');
+	//         if (id) {	
+	//             $.ajax({
+	//                 url: " {{ url('/add/to/cart/') }}/"+id,
+	//                 type:"GET",
+	//                 datType:"json",
+	//                 success:function(data){
+	//              const Toast = Swal.mixin({
+	//                   toast: true,
+	//                   position: 'top-end',
+	//                   showConfirmButton: false,
+	//                   timer: 3000,
+	//                   timerProgressBar: true,
+	//                   onOpen: (toast) => {
+	//                     toast.addEventListener('mouseenter', Swal.stopTimer)
+	//                     toast.addEventListener('mouseleave', Swal.resumeTimer)
+	//                   }
+	//                 })
 
-				var d = $('select[name="color"]').empty();
-				$.each(data.color, function(key, value) {
-					$('select[name="color"]').append('<option value="' + value + '">' + value + '</option>');
-				});
+	//              if ($.isEmptyObject(data.error)) {
 
-				var d = $('select[name="size"]').empty();
-				$.each(data.size, function(key, value) {
-					$('select[name="size"]').append('<option value="' + value + '">' + value + '</option>');
-				});
+	//                 Toast.fire({
+	//                   icon: 'success',
+	//                   title: data.success
+	//                 })
+	//              }else{
+	//                  Toast.fire({
+	//                   icon: 'error',
+	//                   title: data.error
+	//                 })
+	//              }
 
 
-			}
-		})
-	}
+	//                 },
+	//             });
+
+	//         }else{
+	//             alert('danger');
+	//         }
+	//      });
+
+	//    });
 </script>
-
-
-
-<!-- <script type="text/javascript">
-    
-   $(document).ready(function(){
-     $('.addcart').on('click', function(){
-        var id = $(this).data('id');
-        if (id) {
-            $.ajax({
-                url: " {{ url('/add/to/cart/') }}/"+id,
-                type:"GET",
-                datType:"json",
-                success:function(data){
-             const Toast = Swal.mixin({
-                  toast: true,
-                  position: 'top-end',
-                  showConfirmButton: false,
-                  timer: 3000,
-                  timerProgressBar: true,
-                  onOpen: (toast) => {
-                    toast.addEventListener('mouseenter', Swal.stopTimer)
-                    toast.addEventListener('mouseleave', Swal.resumeTimer)
-                  }
-                })
-
-             if ($.isEmptyObject(data.error)) {
-
-                Toast.fire({
-                  icon: 'success',
-                  title: data.success
-                })
-             }else{
-                 Toast.fire({
-                  icon: 'error',
-                  title: data.error
-                })
-             }
- 
-
-                },
-            });
-
-        }else{
-            alert('danger');
-        }
-     });
-
-   });
-
-
-</script> -->
-
-
-
-
-
-
-
-
-
-
 
 
 <script type="text/javascript">
