@@ -111,7 +111,8 @@
 													</ul>
 												</div>
 											</div>
-											<button type="submit" class="header_search_button trans_300" value="Submit"><img src="{{ asset('public/frontend/images/search.png')}}" alt=""></button>
+											<button type="submit" class="header_search_button trans_300" value="Submit">
+											<img src="{{ asset('./frontend/images/search.png')}}" alt=""></button>
 										</form>
 									</div>
 								</div>

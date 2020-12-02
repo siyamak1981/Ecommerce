@@ -33,7 +33,7 @@ $blogcategory = DB::table('post_category')->get();
             </div><!-- col-4 -->
             <div class="col-lg-6">
               <div class="form-group">
-                <label class="form-control-label">Post Title (HINDI): <span class="tx-danger">*</span></label>
+                <label class="form-control-label">Post Title (FARSI): <span class="tx-danger">*</span></label>
                 <input class="form-control" type="text" name="post_title_ir" value="{{ $post->post_title_ir }}">
               </div>
             </div><!-- col-4 -->
@@ -68,7 +68,7 @@ $blogcategory = DB::table('post_category')->get();
 
             <div class="col-lg-12">
               <div class="form-group">
-                <label class="form-control-label">Product Details (HINDI): <span class="tx-danger">*</span></label>
+                <label class="form-control-label">Product Details (FARSI): <span class="tx-danger">*</span></label>
                 <textarea class="form-control" name="details_ir" id="editorpost2">   {!! $post->details_ir !!}</textarea>
               </div>
             </div><!-- col-4 -->

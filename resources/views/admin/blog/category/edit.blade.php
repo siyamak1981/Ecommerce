@@ -38,7 +38,7 @@
         </div>
 
      <div class="form-group">
-          <label for="exampleInputEmail1">Category Name Hindi</label>
+          <label for="exampleInputEmail1">Category Name Farsi</label>
           <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ $blogcatedit->category_name_ir }}" name="category_name_ir">
           
         </div>

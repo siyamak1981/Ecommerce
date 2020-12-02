@@ -84,8 +84,8 @@
         </div>
 
          <div class="form-group">
-          <label for="exampleInputEmail1">Category Name Hindi</label>
-          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Category Name Hindi" name="category_name_ir">
+          <label for="exampleInputEmail1">Category Name Farsi</label>
+          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Category Name Farsi" name="category_name_ir">
           
         </div>
           
