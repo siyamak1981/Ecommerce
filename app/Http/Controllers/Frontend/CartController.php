@@ -237,7 +237,7 @@ class CartController extends Controller
 
         $products = DB::table('products')
             ->where('product_name', 'LIKE', "%$item%")
-            ->paginate(20);
+            ->simplepaginate(20);
 
         return view('pages.search', compact('products'));
     }

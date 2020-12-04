@@ -34,7 +34,7 @@ $order = DB::table('orders')->where('user_id',Auth::id())->orderBy('id','DESC')-
               @elseif($row->return_order == 1)
               <span class="badge badge-info">Pending</span>
                 @elseif($row->return_order == 2)
-                <span class="badge badge-warning">Success</span>
+                <span class="badge badge-success">Success</span>
                  
               @endif   
         </td>
@@ -64,7 +64,7 @@ $order = DB::table('orders')->where('user_id',Auth::id())->orderBy('id','DESC')-
               @elseif($row->return_order == 1)
               <span class="badge badge-info">Pending</span>
                 @elseif($row->return_order == 2)
-                <span class="badge badge-warning">Success</span>
+                <span class="badge badge-success">Success</span>
                  
               @endif    
               
@@ -80,7 +80,7 @@ $order = DB::table('orders')->where('user_id',Auth::id())->orderBy('id','DESC')-
 
       <div class="col-4">
         <div class="card">
-          <img src="{{ asset('public/frontend/images/kaziariyan.png') }}" class="card-img-top" style="height: 90px; width: 90px; margin-left: 34%;">
+          <img src="{{ asset('frontend/images/kaziariyan.png') }}" class="card-img-top" style="height: 90px; width: 90px; margin-left: 34%;">
           <div class="card-body">
             <h5 class="card-title text-center">{{ Auth::user()->name }}</h5>
             

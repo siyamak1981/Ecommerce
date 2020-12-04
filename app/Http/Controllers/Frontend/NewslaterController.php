@@ -30,8 +30,6 @@ class NewslaterController extends Controller
     $track = DB::table('orders')->where('status_code',$code)->first();
     if ($track) {
       
-      // echo "<pre>";
-      // print_r($track);
       return view('pages.tracking',compact('track'));
   
     }else{

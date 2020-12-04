@@ -24,12 +24,14 @@ class CreateAdminsTable extends Migration
             $table->string('product')->nullable();
             $table->string('blog')->nullable();
             $table->string('order')->nullable();
+            $table->string('brand')->nullable();
             $table->string('report')->nullable();
             $table->string('role')->nullable();
             $table->string('return')->nullable();
             $table->string('contact')->nullable();
             $table->string('comment')->nullable();
             $table->string('setting')->nullable();
+            $table->string('stock')->nullable();
             $table->integer('type')->default(1);
             $table->string('password');
             $table->timestamp('email_verified_at')->nullable();

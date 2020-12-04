@@ -11,13 +11,9 @@
         <div class="contact_form_title">
           <h4> Your Order Status </h4>
         </div>
-
-
         <div class="progress">
-
           @if($track->status == 0)
           <div class="progress-bar bg-danger" role="progressbar" style="width: 15%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
-
           @elseif($track->status == 1)
           <div class="progress-bar bg-danger" role="progressbar" style="width: 15%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
           <div class="progress-bar bg-primary" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
@@ -34,7 +30,6 @@
           <div class="progress-bar bg-success" role="progressbar" style="width: 35%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
 
           @else
-
           <div class="progress-bar bg-danger" role="progressbar" style="width: 100%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
           @endif
 
@@ -42,16 +37,12 @@
 
         @if($track->status == 0)
         <h4>Note : Your Order are Under Review </h4>
-
         @elseif($track->status == 1)
         <h4>Note : Payment Accept Under Process </h4>
-
         @elseif($track->status == 2)
         <h4>Note : Packing Done Handover Process </h4>
-
         @elseif($track->status == 3)
         <h4>Note : Order Complete </h4>
-
         @else
         <h4>Note : Order Cancel </h4>
         @endif

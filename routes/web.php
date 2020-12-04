@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/', function () {
   return view('pages.index');
 });
+Route::get('/auth/redirect/{provider}', 'App\Http\Controllers\Frontend\SocialController@redirect');
+Route::get('/callback/{provider}', 'App\Http\Controllers\Frontend\SocialController@callback');
 
 Auth::routes(['verify' => true]);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -63,6 +65,10 @@ Route::get('admin/search/report', 'Report\ReportController@Search')->name('searc
 Route::post('admin/search/by/year', 'Report\ReportController@SearchByYear')->name('search.by.year');
 Route::post('admin/search/by/month', 'Report\ReportController@SearchByMonth')->name('search.by.month');
 Route::post('admin/search/by/date', 'Report\ReportController@SearchByDate')->name('search.by.date');
+Route::get('admin/return/request/', 'BackOrder\ReturnController@ReturnRequest')->name('admin.return.request');
+Route::get('admin/approve/return/{id}', 'BackOrder\ReturnController@ApproveReturn');
+Route::get('admin/all/return/', 'BackOrder\ReturnController@AllReturn')->name('admin.all.return');
+Route::get('admin/stock/show', 'BackOrder\ReturnController@ProductStock')->name('admin.product.stock');
 });
 
 
@@ -113,16 +119,20 @@ Route::get('language/farsi', 'BlogController@Farsi')->name('language.farsi');
 Route::get('blog/single/{id}', 'BlogController@BlogSingle');
 // Pyment Step 
 Route::get('payment/page', 'CartController@PaymentPage')->name('payment.step');
+// Search Route
+Route::post('product/search', 'CartController@Search')->name('product.search');
 Route::post('user/payment/process/', 'PaymentController@Payment')->name('payment.process');
 Route::post('user/stripe/charge/', 'PaymentController@StripeCharge')->name('stripe.charge');
 Route::post('user/oncash/charge/', 'PaymentController@OnCash')->name('oncash.charge');
+Route::get('success/list/', 'PaymentController@SuccessList')->name('success.orderlist');
+Route::get('request/return/{id}', 'PaymentController@RequestReturn');
 Route::get('products/{id}', 'ProductController@ProductsView')->name('products.view.pag');
 Route::get('allcategory/{id}', 'ProductController@CategoryView');
+// Contact
+Route::get('contact/page', 'ContactController@Contact')->name('contact.page');
+Route::post('contact/form', 'ContactController@ContactForm')->name('contact.form');
+Route::get('admin/all/message', 'ContactController@AllMessage')->name('all.message');
 });
-
-
-
-
 
 
 
@@ -134,32 +144,12 @@ Route::post('admin/store/admin', 'UserRoleController@UserStore')->name('store.ad
 Route::get('delete/admin/{id}', 'UserRoleController@UserDelete');
 Route::get('edit/admin/{id}', 'UserRoleController@UserEdit');
 Route::post('admin/update/admin', 'UserRoleController@UserUpdate')->name('update.admin');
+
 });
 // Admin Site Setting Route 
-Route::get('admin/site/setting', 'Admin\SettingController@SiteSetting')->name('admin.site.setting');
+Route::get('admin/site/setting', 'App\Http\Controllers\Admin\Setting\SettingController@SiteSetting')->name('admin.site.setting');
+Route::post('admin/sitesetting', 'App\Http\Controllers\Admin\Setting\SettingController@UpdateSiteSetting')->name('update.sitesetting');
 
-Route::post('admin/sitesetting', 'Admin\SettingController@UpdateSiteSetting')->name('update.sitesetting');
 
- // Return Order Route
 
-Route::get('success/list/', 'PaymentController@SuccessList')->name('success.orderlist');
 
-Route::get('request/return/{id}', 'PaymentController@RequestReturn');
-
-Route::get('admin/return/request/', 'Admin\ReturnController@ReturnRequest')->name('admin.return.request');
-
-Route::get('admin/approve/return/{id}', 'Admin\ReturnController@ApproveReturn');
-Route::get('admin/all/return/', 'Admin\ReturnController@AllReturn')->name('admin.all.return');
-
-// Order Stock Route 
-Route::get('admin/product/stock', 'Admin\UserRoleController@ProductStock')->name('admin.product.stock');
-
-/// Contact page Routes
-
-Route::get('contact/page', 'ContactController@Contact')->name('contact.page');
-Route::post('contact/form', 'ContactController@ContactForm')->name('contact.form');
-
-Route::get('admin/all/message', 'ContactController@AllMessage')->name('all.message');
-
-// Search Route
-Route::post('product/search', 'CartController@Search')->name('product.search');

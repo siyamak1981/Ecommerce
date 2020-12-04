@@ -127,10 +127,9 @@
             <span class="menu-item-label">Coupon</span>
             <i class="menu-item-arrow fa fa-angle-down"></i>
           </div><!-- menu-item -->
-        </a><!-- sl-menu-link -->
+        </a>
         <ul class="sl-menu-sub nav flex-column">
           <li class="nav-item"><a href="{{route('coupon.index')}}" class="nav-link">Coupon</a></li>
-          <li class="nav-item"><a href="alerts.html" class="nav-link">Alerts</a></li>
         </ul>
         @else
         @endif
@@ -221,7 +220,7 @@
           </div><!-- menu-item -->
         </a><!-- sl-menu-link -->
         <ul class="sl-menu-sub nav flex-column">
-          <li class="nav-item"><a href="{{ route('admin.product.stock') }}" class="nav-link">Stock</a></li>
+          <li class="nav-item"><a href="{{ URL::to('admin/stock/show') }}" class="nav-link">Stock</a></li>
 
 
         </ul>

@@ -151,7 +151,7 @@
 					<div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab"><br>
 
 						<div class="fb-comments" data-href="{{ Request::url() }}" data-width="" data-numposts="5"></div>
-
+						
 					</div>
 				</div>
 
@@ -163,9 +163,9 @@
 
 
 
-<div id="fb-root"></div>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v6.0"></script>
 
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v9.0" nonce="rcyN6k4H"></script>
 <!-- Go to www.addthis.com/dashboard to customize your tools -->
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5e4b85f98de5201f"></script>
 

@@ -191,16 +191,10 @@ class PaymentController extends Controller
     }
 
 
-
-
-
-
-
     public function SuccessList()
     {
 
         $order = DB::table('orders')->where('user_id', Auth::id())->where('status', 3)->orderBy('id', 'DESC')->limit(5)->get();
-
         return view('pages.returnorder', compact('order'));
     }
 
