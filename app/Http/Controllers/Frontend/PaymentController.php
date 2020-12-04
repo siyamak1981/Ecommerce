@@ -85,7 +85,7 @@ class PaymentController extends Controller
         $order_id = DB::table('orders')->insertGetId($data);
 
         // Mail send to user for Invoice
-        // Mail::to($email)->send(new invoiceMail($data));
+        Mail::to($email)->send(new invoiceMail($data));
 
 
         /// Insert Shipping Table 
